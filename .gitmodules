@@ -1,0 +1,12 @@
+[submodule "distiller-cm5-services"]
+	path = distiller-cm5-services
+	url = https://github.com/Pamir-AI/distiller-cm5-services.git
+	branch = BHV
+[submodule "distiller-cm5-python"]
+	path = distiller-cm5-python
+	url = https://github.com/Pamir-AI/distiller-cm5-python.git
+	branch = BHV
+[submodule "distiller-cm5-sdk"]
+	path = distiller-cm5-sdk
+	url = https://github.com/Pamir-AI/distiller-cm5-sdk.git
+	branch = BHV
