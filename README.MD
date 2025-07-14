@@ -49,6 +49,7 @@ python /opt/distiller-cm5-sdk/src/distiller_cm5_sdk/hardware/sam/_led_unit_test.
 python /opt/distiller-cm5-services/wifi_info_display.py --display
 
 # llm test 
+source /opt/distiller-cm5-sdk/activate.sh 
 cd /opt/distiller-cm5-python && 
 .venv/bin/python main.py --gui
 ```
