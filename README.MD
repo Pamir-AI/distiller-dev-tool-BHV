@@ -8,6 +8,51 @@ This repository includes three submodules tracking the BHV branch:
 - **distiller-cm5-python** - Core Python implementation for LLM chat and MCP server functionality  
 - **distiller-cm5-sdk** - SDK for eink. led and mic
 
+## Getting Started
+
+**Pre-installed Stack Location**: All components are pre-installed in `/opt/`
+
+### 1. Initial WiFi Setup (First boot only)
+- Long press **Enter** button after boot screen
+- Badge creates hotspot: `DistillerSetup-[random ID]`
+- Connect your phone/laptop to this network
+- Open browser to `http://192.168.4.1` or follow instruction on Eink screen
+- Select your WiFi network and enter password
+
+### 2. Quick Verification
+```bash
+# SSH into badge (after WiFi setup)
+ssh distiller@[IP]
+
+# Check services status
+sudo systemctl start distiller-wifi
+```
+
+### 3. To run the LLM
+```bash
+cd /opt/distiller-cm5-python
+.venv/bin/python main.py --gui
+```
+
+## Pre-flight Checks
+
+Run these commands to verify your installation:
+
+```bash
+# to use the sdk python lib 
+/opt/distiller-cm5-sdk/activate.sh
+
+# hardware quick test 
+python /opt/distiller-cm5-sdk/src/distiller_cm5_sdk/hardware/sam/_led_unit_test.py 
+
+# wifi service quick test 
+python /opt/distiller-cm5-services/wifi_info_display.py --display
+
+# llm test 
+cd /opt/distiller-cm5-python && 
+.venv/bin/python main.py --gui
+```
+
 ## How to Switch Model
 
 To switch to a different model, follow these steps:
@@ -63,7 +108,7 @@ Enter without spinning up the default LLM chat services, then show SSH info on s
 ### Cache Issues
 
 When LLM cache runs into issues, delete the cache folder at:
-```
+```bash
 /home/distiller/distiller-cm5-python/distiller_cm5_python/llm_server/cache
 ```
 
